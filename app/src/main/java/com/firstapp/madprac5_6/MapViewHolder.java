@@ -14,6 +14,9 @@ public class MapViewHolder extends RecyclerView.ViewHolder {
     public ImageView image3;
     public ImageView image4;
     public ImageView overallImage;
+    MapElement mapElement;
+
+    MapData mapData;
 
     public MapViewHolder(@NonNull View itemView, ViewGroup parent) {
         super(itemView);
@@ -26,7 +29,11 @@ public class MapViewHolder extends RecyclerView.ViewHolder {
         image2.findViewById(R.id.imageViewTopRight);
         image3.findViewById(R.id.imageViewBottomLeft);
         image4.findViewById(R.id.imageViewBottomRight);
+
+        Structure structure =  mapElement.getStructure();
         overallImage.findViewById(R.id.overallImageView);
+
+
 
     }
 }

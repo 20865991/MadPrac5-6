@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SelectorViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView textView;
-    public ImageView imageView;
+    public TextView imageLabel;
+    public ImageView image;
     public SelectorViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        textView.findViewById(R.id.selectName);
-        imageView.findViewById(R.id.selectId);
+        imageLabel.findViewById(R.id.selectorLabel);
+        image.findViewById(R.id.selectorImage);
     }
 }
