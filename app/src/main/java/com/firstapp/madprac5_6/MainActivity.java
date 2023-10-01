@@ -1,15 +1,20 @@
 package com.firstapp.madprac5_6;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-    Selector selectorFrag = new Selector();
-    Map mapFrag = new Map();
+
+    MapData mp;
+    StructureData sd;
+
+    public MainActivity() {
+        mp = MapData.get();
+        sd = StructureData.get();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,28 +24,22 @@ public class MainActivity extends AppCompatActivity {
         loadSelectorFragment();
     }
 
-    private void loadSelectorFragment(){
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment frag = fm.findFragmentById(R.id.selector);
-
-        if(frag == null) {
-            fm.beginTransaction().add(R.id.selector, selectorFrag).commit();
-        }
-        else {
-            fm.beginTransaction().replace(R.id.selector, selectorFrag).commit();
+    private void loadSelectorFragment() {
+        SelectorFragment frag2 = (SelectorFragment) getSupportFragmentManager().findFragmentById(R.id.selector);
+        if (frag2 == null) {
+            frag2 = new SelectorFragment(sd);
+            Log.d("msg", "going in here selector");
+            getSupportFragmentManager().beginTransaction().add(R.id.selector, frag2).commit();
         }
     }
 
-    private void loadMapFragment(){
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment frag = fm.findFragmentById(R.id.map);
-
-        if(frag == null) {
-            fm.beginTransaction().add(R.id.map, mapFrag).commit();
-        }
-        else {
-            fm.beginTransaction().replace(R.id.map, mapFrag).commit();
+    private void loadMapFragment() {
+        MapFragment frag2 = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        if (frag2 == null) {
+            frag2 = new MapFragment(mp);
+            Log.d("msg", "going in here selector");
+            getSupportFragmentManager().beginTransaction().add(R.id.map, frag2).commit();
         }
     }
-
 }
+

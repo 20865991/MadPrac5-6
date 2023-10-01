@@ -183,4 +183,11 @@ public class MapData
     {
         return grid[i][j];
     }
+
+    public void setMapElement(int i, int j, Structure struct){
+
+        MapElement element = grid[i][j];
+
+        element.setStructure(struct);
+    }
 }
