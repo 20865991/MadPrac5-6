@@ -57,22 +57,21 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
                     Log.d("has", "structure");
                     holder.structureImage.setImageResource(singleStructure.getDrawableId());
                     mp.setMapElement(row, col, singleStructure);
-
                 }
             }
         });
 
-        holder.refresh.setOnClickListener(new View.OnClickListener() {
+
+        /*holder.refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Refreshing ", Toast.LENGTH_SHORT).show();
                 mp.regenerate();
-                MapAdapter myAdapter = new MapAdapter(mp);
-                myAdapter.notifyItemRangeChanged(0, MapData.WIDTH * MapData.HEIGHT);
+                notifyDataSetChanged();
+
 
             }
-        });
-
+        });*/
     }
 
     @Override
@@ -105,7 +104,7 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
             image4 = itemView.findViewById(R.id.imageViewBottomRight);
             //Structure newStructure = mapElement.getStructure();
             structureImage = itemView.findViewById(R.id.overallImageView);
-            refresh = itemView.findViewById(R.id.refreshButton);
+            //refresh = itemView.findViewById(R.id.refreshButton);
 
         }
 

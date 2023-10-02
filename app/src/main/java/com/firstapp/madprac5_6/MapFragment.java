@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MapFragment extends Fragment {
@@ -16,6 +18,8 @@ public class MapFragment extends Fragment {
     MapData mp;
     private RecyclerView rv;
     private MapAdapter myAdapter;
+
+    private Button refresh;
     public MapFragment() {
         // Required empty public constructor
     }
@@ -37,6 +41,17 @@ public class MapFragment extends Fragment {
                 false));
         myAdapter = new MapAdapter(mp);
         rv.setAdapter(myAdapter);
+
+        refresh = rootView.findViewById(R.id.refreshButton);
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Refreshing ", Toast.LENGTH_SHORT).show();
+                mp.regenerate();
+                myAdapter.notifyDataSetChanged();
+            }
+        });
 
         return rootView;
     }

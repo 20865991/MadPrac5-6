@@ -4,73 +4,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageViewTopLeft"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/imageViewTopRight"
-        app:layout_constraintBottom_toTopOf="@id/imageViewBottomLeft"/>
 
-    <ImageView
-        android:id="@+id/imageViewTopRight"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imageViewTopLeft"
-        app:layout_constraintBottom_toTopOf="@id/imageViewBottomRight"/>
+        <ImageView
+            android:id="@+id/imageViewTopLeft"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/imageViewBottomLeft"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/imageViewTopRight"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
 
-    <ImageView
-        android:id="@+id/imageViewBottomLeft"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintTop_toBottomOf="@id/imageViewTopLeft"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/imageViewBottomRight"/>
+        <ImageView
+            android:id="@+id/imageViewTopRight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/imageViewBottomRight"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toRightOf="@id/imageViewTopLeft"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
 
-    <ImageView
-        android:id="@+id/imageViewBottomRight"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintTop_toBottomOf="@id/imageViewTopRight"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imageViewBottomLeft"/>
+        <ImageView
+            android:id="@+id/imageViewBottomLeft"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/imageViewBottomRight"
+            app:layout_constraintTop_toBottomOf="@id/imageViewTopLeft"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
 
-    <ImageView
-        android:id="@+id/overallImageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        <ImageView
+            android:id="@+id/imageViewBottomRight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toRightOf="@id/imageViewBottomLeft"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewTopRight"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
 
-    <Button
-        android:id="@+id/refreshButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Refresh map"/>
+        <ImageView
+            android:id="@+id/overallImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
