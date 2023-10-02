@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
 
     MapData mp;
+
+    private boolean isStructureOnMap = false;
     public MapAdapter (MapData mp){
         this.mp = mp;
     }
@@ -51,27 +53,26 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
         holder.structureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Structure singleStructure = CommonStructure.getpassedStructure();
-                Log.d("struct is", String.valueOf(singleStructure));
-                if(singleStructure != null){
-                    Log.d("has", "structure");
-                    holder.structureImage.setImageResource(singleStructure.getDrawableId());
-                    mp.setMapElement(row, col, singleStructure);
+
+                //Log.d("struct is", String.valueOf(singleStructure));
+                if(isStructureOnMap){
+                    //Log.d("has", "structure");
+                    holder.structureImage.setImageResource(0);
+                    mp.removeStructure(row, col);
+                    isStructureOnMap = false;
+
+                } else{
+                    Structure singleStructure = CommonStructure.getpassedStructure();
+                    if(singleStructure != null){
+                        holder.structureImage.setImageResource(singleStructure.getDrawableId());
+                        mp.setMapElement(row, col, singleStructure);
+                        isStructureOnMap = true;
+                    }
+
                 }
             }
         });
 
-
-        /*holder.refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Refreshing ", Toast.LENGTH_SHORT).show();
-                mp.regenerate();
-                notifyDataSetChanged();
-
-
-            }
-        });*/
     }
 
     @Override
@@ -86,8 +87,6 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
         public ImageView image3;
         public ImageView image4;
         public ImageView structureImage;
-
-        public Button refresh;
         MapElement mapElement;
         int position1, position2;
 

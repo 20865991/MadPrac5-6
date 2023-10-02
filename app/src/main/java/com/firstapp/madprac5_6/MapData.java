@@ -191,19 +191,15 @@ public class MapData
         element.setStructure(struct);
     }
 
-    /*public boolean containsStructure(int row, int col){
-        if(isValidPosition(row, col)){
-            return MapElement[row][col].getStructure != null;
-        }
-    }
-
     public void removeStructure(int row, int col) {
         if (isValidPosition(row, col)) {
-            MapElement[row][col].setStructure(null);
+            MapElement element = grid[row][col];
+            if (element != null) {
+                element.setStructure(null);
+            }
         }
     }
-
     private boolean isValidPosition(int row, int col) {
         return row >= 0 && row < HEIGHT && col >= 0 && col < WIDTH;
-    }*/
+    }
 }
