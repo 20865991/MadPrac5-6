@@ -3,7 +3,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +40,7 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
         holder.image3.setImageResource(element.getSouthWest());
         holder.image4.setImageResource(element.getSouthEast());
 
+
         Structure newStructure = element.getStructure();
         if(newStructure != null){
             holder.structureImage.setImageResource(newStructure.getDrawableId());
@@ -59,6 +62,17 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
             }
         });
 
+        holder.refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Refreshing ", Toast.LENGTH_SHORT).show();
+                mp.regenerate();
+                MapAdapter myAdapter = new MapAdapter(mp);
+                myAdapter.notifyItemRangeChanged(0, MapData.WIDTH * MapData.HEIGHT);
+
+            }
+        });
+
     }
 
     @Override
@@ -73,13 +87,14 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
         public ImageView image3;
         public ImageView image4;
         public ImageView structureImage;
+
+        public Button refresh;
         MapElement mapElement;
         int position1, position2;
 
         public MapViewHolder(@NonNull View itemView, MapData map, int size) {
             super(itemView);
 
-            //int size = parent.getMeasuredHeight() / MapData.HEIGHT + 1;
             ViewGroup.LayoutParams lp = itemView.getLayoutParams();
             lp.width = size;
             lp.height = size;
@@ -90,6 +105,7 @@ public class MapAdapter extends RecyclerView.Adapter<MapAdapter.MapViewHolder> {
             image4 = itemView.findViewById(R.id.imageViewBottomRight);
             //Structure newStructure = mapElement.getStructure();
             structureImage = itemView.findViewById(R.id.overallImageView);
+            refresh = itemView.findViewById(R.id.refreshButton);
 
         }
 
